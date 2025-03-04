@@ -49,7 +49,7 @@ Para colaborar en este proyecto, utilizaremos **conventional commits** como guí
     - **Crear una nueva rama para tu trabajo:**
 
     ```bash
-    git branch feature/develop
+    git branch develop
     ```
 
     - **Cambiar a la rama `develop`:**
@@ -81,9 +81,17 @@ Para colaborar en este proyecto, utilizaremos **conventional commits** como guí
     #### Paso a Paso:
 
     - **Añadir los archivos que deseas confirmar al commit:**
+    
+    Ejemplo 1
 
-    ```bash
-    git add name_file1.ts name_file2.ts directory/another_directory 
+   ```bash
+    git add name_file1.ts name_file2.ts directory/another_directory
+    ```
+
+   Ejemplo 2
+   
+   ```bash
+    git add .
     ```
 
     - **Crear un commit con un mensaje descriptivo siguiendo el formato de conventional commits:**
@@ -98,7 +106,7 @@ Para colaborar en este proyecto, utilizaremos **conventional commits** como guí
     git push origin feature/report-view
     ```
 
-3. Abrir un Pull Request para Revisión de Cambios
+4. Abrir un Pull Request para Revisión de Cambios
 
     - Una vez que los cambios estén en tu rama en GitHub, abre un pull request hacia la rama develop para revisión.
 
