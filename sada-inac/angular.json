@@ -66,6 +66,7 @@
             "production": {
               "buildTarget": "sada-inac:build:production"
             },
+            
             "development": {
               "buildTarget": "sada-inac:build:development"
             }
