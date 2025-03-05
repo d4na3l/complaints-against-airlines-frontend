@@ -1,0 +1,135 @@
+<div class="flex justify-center">
+    <form class="bg-white shadow-lg rounded-lg p-8">
+        <p
+            class="text-2xl font-bold text-center border-b-2 border-indigo-500 mb-5"
+        >
+            Formulario de denuncia.
+        </p>
+        <span class="text-wrap text-base my-6"
+            >Por favor, ingresa los datos solicitados en el siguiente
+            formulario.</span
+        >
+        <fieldset class="mb-4">
+            <legend class="text-lg font-bold border-b-2 border-indigo-500 mb-4">
+                Datos de la denuncia.
+            </legend>
+            <div class="flex flex-col space-y-2">
+                <label for="incident_date">Fecha del suceso.</label>
+                <input
+                    type="date"
+                    placeholder="Fecha"
+                    id="incident-date"
+                    class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500"
+                    formControlName="incident_date"
+                />
+                <label for="flight_type">Clasificación del vuelo.</label>
+                <select
+                    id="flight_type"
+                    class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500"
+                    formControlName="flight_type_id"
+                >
+                    <option value="">Clasificación del vuelo.</option>
+                </select>
+                <label for="airline">Aerolínea.</label>
+                <select
+                    name=""
+                    id="airline"
+                    class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500"
+                    formControlName="airline_id"
+                >
+                    <option value="">Aerolínea</option>
+                </select>
+                <label for="airport">Aeropuerto del suceso.</label>
+                <select
+                    id="airport"
+                    class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500"
+                    formControlName="incidennt_airport_id"
+                >
+                    <option value="">Aeropuerto</option>
+                </select>
+                <label for="flight_number">Número del vuelo.</label>
+                <input
+                    type="text"
+                    name=""
+                    id="flight_number"
+                    placeholder="Número de vuelo"
+                    class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500"
+                    formControlName="flight_number"
+                />
+                <label for="tikect_number">Número de boleto.</label>
+                <input
+                    type="text"
+                    id="tikect_number"
+                    placeholder="Número de boleto"
+                    class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500"
+                    formControlName="ticket_number"
+                />
+                <label for="origin">Aeropuerto de origen.</label>
+                <select
+                    name=""
+                    id="origin"
+                    class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500"
+                    formControlName="origin_airport_id"
+                >
+                    <option value="">Origen</option>
+                </select>
+                <label for="destination">Aeropuerto de destino.</label>
+                <select
+                    name=""
+                    id="destination"
+                    class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500"
+                    formControlName="destination_airport_id"
+                >
+                    <option value="">Destino</option>
+                </select>
+            </div>
+        </fieldset>
+        <fieldset class="mb-4">
+            <legend class="text-lg font-bold border-b-2 border-indigo-500 mb-4">
+                Motivo de la denuncia
+            </legend>
+            <div class="flex flex-col gap-2">
+                <select
+                    name=""
+                    id=""
+                    class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500"
+                    formControlName="motive_id"
+                >
+                    <option value="">
+                        Seleccione el motivo de su denuncia
+                    </option>
+                </select>
+            </div>
+        </fieldset>
+        <fieldset class="mb-4">
+            <legend class="text-lg font-bold border-b-2 border-indigo-500 mb-4">
+                Descripción de la denuncia
+            </legend>
+            <textarea
+                name=""
+                id=""
+                class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500 h-40"
+                formControlName="description"
+            ></textarea>
+        </fieldset>
+        <fieldset class="mb-4">
+            <legend class="text-lg font-bold border-b-2 border-indigo-500 mb-4">
+                Elementos probatorios
+            </legend>
+            <input
+                type="file"
+                name="files"
+                id=""
+                class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500"
+            />
+        </fieldset>
+        <div class="flex justify-center">
+            <button
+                type="submit"
+                class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded"
+            >
+                Enviar Denuncia
+            </button>
+        </div>
+    </form>
+</div>
