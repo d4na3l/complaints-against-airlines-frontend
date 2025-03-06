@@ -6,11 +6,13 @@ import { Observable } from 'rxjs';
     providedIn: 'root',
 })
 export class ApitestService {
-    readonly apiUrl = 'https://rickandmortyapi.com/api/character';
+    readonly apiUrl = 'https://jsonplaceholder.typicode.com/users';
 
-    // data: any[];
+    data: any[];
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) {
+        this.data = [];
+    }
 
     getData() {
         return this.http.get<any[]>(this.apiUrl);

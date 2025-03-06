@@ -1,5 +1,9 @@
 <div class="flex justify-center">
-    <form class="bg-white shadow-lg rounded-lg p-8">
+    <form
+        class="bg-white shadow-lg rounded-lg p-8"
+        [formGroup]="complaintForm"
+        (submit)="handleSubmit()"
+    >
         <p
             class="text-2xl font-bold text-center border-b-2 border-indigo-500 mb-5"
         >
@@ -28,7 +32,10 @@
                     class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500"
                     formControlName="flight_type_id"
                 >
-                    <option value="">Clasificación del vuelo.</option>
+                    <option value="">
+                        Seleccione la clasificación del vuelo.
+                    </option>
+                    <option [ngValue]="1">Vuelo que vuela</option>
                 </select>
                 <label for="airline">Aerolínea.</label>
                 <select
@@ -37,30 +44,36 @@
                     class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500"
                     formControlName="airline_id"
                 >
-                    <option value="">Aerolínea</option>
+                    <option value="">Seleccione la Aerolínea.</option>
+                    <option [ngValue]="1">Aerolínea de aviones</option>
                 </select>
                 <label for="airport">Aeropuerto del suceso.</label>
                 <select
                     id="airport"
                     class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500"
-                    formControlName="incidennt_airport_id"
+                    formControlName="incident_airport_id"
                 >
-                    <option value="">Aeropuerto</option>
+                    <option value="">
+                        Seleccione el aeropuerto del suceso.
+                    </option>
+                    <option [ngValue]="1">
+                        aeropuerto que definitivamente existe
+                    </option>
                 </select>
                 <label for="flight_number">Número del vuelo.</label>
                 <input
-                    type="text"
+                    type="number"
                     name=""
                     id="flight_number"
-                    placeholder="Número de vuelo"
+                    placeholder="Ingrese el número de vuelo"
                     class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500"
                     formControlName="flight_number"
                 />
                 <label for="tikect_number">Número de boleto.</label>
                 <input
-                    type="text"
+                    type="number"
                     id="tikect_number"
-                    placeholder="Número de boleto"
+                    placeholder="Ingrese el número de boleto"
                     class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500"
                     formControlName="ticket_number"
                 />
@@ -71,7 +84,8 @@
                     class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500"
                     formControlName="origin_airport_id"
                 >
-                    <option value="">Origen</option>
+                    <option value="">Seleccione el aeropueto de origen.</option>
+                    <option [ngValue]="1">Aeropuerto que tmb existe x2.</option>
                 </select>
                 <label for="destination">Aeropuerto de destino.</label>
                 <select
@@ -80,7 +94,10 @@
                     class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500"
                     formControlName="destination_airport_id"
                 >
-                    <option value="">Destino</option>
+                    <option value="">
+                        Seleccione el aeropuerto de destino.
+                    </option>
+                    <option [ngValue]="1">Aeropuerto que tmb existe x3.</option>
                 </select>
             </div>
         </fieldset>
@@ -90,14 +107,13 @@
             </legend>
             <div class="flex flex-col gap-2">
                 <select
-                    name=""
-                    id=""
                     class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500"
                     formControlName="motive_id"
                 >
                     <option value="">
                         Seleccione el motivo de su denuncia
                     </option>
+                    <option [ngValue]="1">Motivo totalmente valido</option>
                 </select>
             </div>
         </fieldset>
@@ -119,13 +135,12 @@
             <input
                 type="file"
                 name="files"
-                id=""
+                formControlName="files"
                 class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500"
             />
         </fieldset>
         <div class="flex justify-center">
             <button
-                type="submit"
                 class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded"
             >
                 Enviar Denuncia
