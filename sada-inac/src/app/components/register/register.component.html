@@ -1,6 +1,6 @@
 
 
-<section class="bg-gray-50 dark:bg-gray-900">
+<section class="bg-white dark:bg-gray-900">
   <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
       <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
           <img class="w-15 h-15 mr-2" src="/logosada02.png" alt="logo">    
@@ -11,6 +11,14 @@
                   Registrarse
               </h1>
               <form class="space-y-4 md:space-y-6" action="#">
+                <div>
+                  <label for="nombres" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombres</label>
+                  <input type="text" name="nombres" id="nombres" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" required="">
+              </div>
+              <div>
+                <label for="apellidos" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Apellidos</label>
+                <input type="text" name="apellidos" id="apellidos" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" required="">
+            </div>
                   <div>
                       <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo</label>
                       <input type="email" name="email" id="email" class= "block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" placeholder="ejemplo@gmail.com" required="">
@@ -23,6 +31,27 @@
                       <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirme la contraseña</label>
                       <input type="confirm-password" name="confirm-password" id="confirm-password" placeholder="Repetir los seis(6) carateres" class= "block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 " required="">
                   </div>
+                  
+              <div>
+                <label for="fecha" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">fecha de nacimiento</label>
+                <input type="date" name="fecha" id="fecha" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" required="">
+            </div>
+
+            <div>
+              <label for="profecion" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">PROFECION U OFICIO</label>
+              <input type="text" name="profecion" id="profecion" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" required="">
+           </div>
+
+           <div class="flex items-center gap">
+              <label for="CI" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> DOCUMENTO DE IDENTIDAD </label>
+              <select id="CI"class="w-auto bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option selected>CIV</option>
+                <option value="CIE">CIE</option>
+                <option value="PAS">PAS</option>
+              </select>
+              <input type="number" name="profecion" id="profecion" class="w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm" required/>   
+          </div>
+
                   
                   <button type="submit" class="mt-8 block w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">REGISTRATE</button>
                   
