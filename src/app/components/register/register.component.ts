@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CountryService } from '../../service/contry.service'; 
+import { Router } from '@angular/router';
+import { AuthService } from '../../service/auth.service';
 
 interface Formulario {
   first_name?: string;
@@ -43,7 +45,7 @@ export class RegisterComponent implements OnInit {
   erroresPaso2: string[] = [];
   errorServicioPaises: string | null = null; 
 
-  constructor(private countryService: CountryService) {}
+  constructor(private countryService: CountryService,private router: Router, private authService: AuthService) {}
 
   ngOnInit() {
     this.countryService.getAllCountries().subscribe({
@@ -166,6 +168,7 @@ export class RegisterComponent implements OnInit {
       this.pasoActual = 1;
       this.selectedNationality = '';
       this.selectedCountryName = '';
+      this.router.navigate(['/']); 
     } else {
       
     }
