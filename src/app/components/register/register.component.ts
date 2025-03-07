@@ -3,6 +3,22 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CountryService } from '../../service/contry.service';
 
+interface Formulario {
+  first_name?: string;
+  last_name?: string;
+  local_phone?: number;
+  phone?: number;
+  email?: string;
+  password?: string;
+  confirmPassword?: string;
+  birthdate?: string;
+  profession?: string;
+  documentoIdentidad?: string;
+  numeroDocumento?: string;
+  domicile_addres?: string;
+  additional_address?: string;
+}
+
 @Component({
   selector: 'app-register',
   standalone: true,
@@ -11,10 +27,9 @@ import { CountryService } from '../../service/contry.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  pasoActual: number = 1; // Controla el paso actual del formulario
-  formulario: any = {}; // Almacena los datos del formulario
+  pasoActual: number = 1;
+  formulario: Formulario = {};
 
-  // Variables para países y nacionalidades
   selectedCountry: any;
   selectedNationality: string = '';
   selectedCountryName: string = '';
@@ -25,7 +40,6 @@ export class RegisterComponent implements OnInit {
   constructor(private countryService: CountryService) {}
 
   ngOnInit() {
-    // Cargar los países al inicializar el componente
     this.countryService.getAllCountries().subscribe((countries) => {
       this.countries = countries;
       this.allCountries = [...countries];
@@ -33,7 +47,6 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  // Obtener nacionalidades únicas
   getNationalities() {
     const allNationalities = this.allCountries.flatMap((country) => {
       return country?.demonyms?.eng
@@ -43,32 +56,30 @@ export class RegisterComponent implements OnInit {
     this.nationalities = [...new Set(allNationalities)];
   }
 
-  // Cambiar la nacionalidad seleccionada
   onNationalityChange() {
     this.selectedCountry = null;
     this.selectedCountryName = '';
   }
 
-  // Actualizar el país seleccionado
   updateSelectedCountry() {
     this.selectedCountry = this.allCountries.find(
       (country) => country.name.common === this.selectedCountryName
     );
   }
 
-  // Avanzar al siguiente paso del formulario
   siguientePaso() {
     if (this.pasoActual === 1) {
-      // Validar los datos del primer paso antes de avanzar
       if (
-        this.formulario.nombres &&
-        this.formulario.apellidos &&
+        this.formulario.first_name &&
+        this.formulario.last_name &&
+        this.formulario.local_phone &&
+        this.formulario.phone &&
         this.formulario.email &&
         this.formulario.password &&
         this.formulario.confirmPassword &&
         this.formulario.password === this.formulario.confirmPassword
       ) {
-        this.pasoActual = 2; // Avanzar al segundo paso
+        this.pasoActual = 2;
       } else {
         alert(
           'Por favor, complete todos los campos y asegúrese de que las contraseñas coincidan.'
@@ -77,18 +88,20 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  // Enviar el formulario
+  retrocederPaso() {
+    this.pasoActual = 1;
+  }
+
   onSubmit() {
     if (this.pasoActual === 2) {
-      // Validar los datos del segundo paso antes de enviar
       if (
-        this.formulario.fechaNacimiento &&
-        this.formulario.profesion &&
+        this.formulario.birthdate &&
+        this.formulario.profession &&
         this.formulario.documentoIdentidad &&
         this.selectedNationality &&
         this.selectedCountryName &&
-        this.formulario.direccion &&
-        this.formulario.telefono
+        this.formulario.domicile_addres &&
+        this.formulario.additional_address
       ) {
         console.log('Formulario enviado:', {
           ...this.formulario,

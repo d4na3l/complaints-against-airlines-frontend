@@ -1,4 +1,4 @@
-<section class="bg-white dark:bg-gray-900">
+<section class="bg-white dark:bg-gray-900 mt-10" >
   <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
     <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
       <img class="w-15 h-15 mr-2" src="/logosada02.png" alt="logo">
@@ -12,23 +12,32 @@
           <!-- Paso 1: Datos básicos -->
           <div *ngIf="pasoActual === 1">
             <div>
-              <label for="nombres" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombres</label>
-              <input type="text" name="nombres" id="nombres" [(ngModel)]="formulario.nombres" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" required>
+              <label for="first_name" class="block mb-2 text-sm/6  font-medium text-gray-900 dark:text-white">NOMBRE</label>
+              <input type="text" name="first_name" id="first_name" [(ngModel)]="formulario.first_name" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" required>
             </div>
             <div>
-              <label for="apellidos" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Apellidos</label>
-              <input type="text" name="apellidos" id="apellidos" [(ngModel)]="formulario.apellidos" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" required>
+              <label for="last_name" class="block mb-2 text-sm/6 mt-2 font-medium text-gray-900 dark:text-white">APELLIDOS</label>
+              <input type="text" name="last_name" id="last_name" [(ngModel)]="formulario.last_name" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" required>
             </div>
             <div>
-              <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo</label>
+              <label for="local_phone" class="block mb-2 text-sm/6 mt-2 font-medium text-gray-900 dark:text-white">TELEFONO LOCAL (1)</label>
+              <input type="number" name="local_phone" id="local_phone" [(ngModel)]="formulario.local_phone" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" placeholder="Ejemplo: 05054687311" required>
+            </div>
+            <div>
+              <label for="phone" class="block mb-2 text-sm/6 mt-2 font-medium text-gray-900 dark:text-white">NUMERO DE TELEFONO </label>
+              <input type="number" name="phone" id="phone" [(ngModel)]="formulario.phone" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" placeholder="Ejemplo: 05054687311" required>
+            </div>
+           
+            <div>
+              <label for="email" class="block mb-2 text-sm/6 mt-2 font-medium text-gray-900 dark:text-white">CORREO ELETRONICO</label>
               <input type="email" name="email" id="email" [(ngModel)]="formulario.email" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" placeholder="ejemplo@gmail.com" required>
             </div>
             <div>
-              <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contraseña</label>
+              <label for="password" class="block mb-2 text-sm/6 mt-2 font-medium text-gray-900 dark:text-white">CONTRASEÑA</label>
               <input type="password" name="password" id="password" [(ngModel)]="formulario.password" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" placeholder="Mínimo seis (6) caracteres" required>
             </div>
             <div>
-              <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirme la contraseña</label>
+              <label for="confirm-password" class="block mb-2 text-sm/6 mt-2 font-medium text-gray-900 dark:text-white">CONFIRMA LA CONTRASEÑA</label>
               <input type="password" name="confirm-password" id="confirm-password" [(ngModel)]="formulario.confirmPassword" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" placeholder="Repetir los seis (6) caracteres" required>
             </div>
             <button type="button" (click)="siguientePaso()" class="mt-8 block w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
@@ -39,43 +48,51 @@
           <!-- Paso 2: Datos adicionales -->
           <div *ngIf="pasoActual === 2">
             <div>
-              <label for="fecha" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de nacimiento</label>
-              <input type="date" name="fecha" id="fecha" [(ngModel)]="formulario.fechaNacimiento" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" required>
+              <label for="birthdate" class="block mb-2 text-sm/6 mt-2 font-medium text-gray-900 dark:text-white">FECHA DE NACIMIENTO</label>
+              <input type="date" name="birthdate" id="birthdate" [(ngModel)]="formulario.birthdate" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" required>
             </div>
             <div>
-              <label for="profecion" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Profesión u oficio</label>
-              <input type="text" name="profecion" id="profecion" [(ngModel)]="formulario.profesion" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" required>
+              <label for="profession" class="block mb-2 text-sm/6 mt-2 font-medium text-gray-900 dark:text-white">PROFECCION U OFICIO</label>
+              <input type="text" name="profession" id="profession" [(ngModel)]="formulario.profession" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" required>
+            </div>
+            <div class="flex flex-col">
+              <label for="CI" class="block mb-2 text-sm/6 mt-2 font-medium text-gray-900 dark:text-white">DOCUMENTO DE IDENTIDAD</label>
+              <div class="flex items-center space-x-2">
+                <select id="CI" name="documentoIdentidad" [(ngModel)]="formulario.documentoIdentidad" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                  <option value="CIV">CIV</option>
+                  <option value="CIE">CIE</option>
+                  <option value="PAS">PAS</option>
+                </select>
+                <input type="text" name="numeroDocumento" [(ngModel)]="formulario.numeroDocumento" class="flex-grow bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Cedula de identidad" required>
+              </div>
             </div>
             <div>
-              <label for="CI" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Documento de identidad</label>
-              <select id="CI" [(ngModel)]="formulario.documentoIdentidad" class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                <option value="CIV">CIV</option>
-                <option value="CIE">CIE</option>
-                <option value="PAS">PAS</option>
-              </select>
-            </div>
-            <div>
-              <label for="national" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nacionalidad</label>
-              <select id="national" [(ngModel)]="selectedNationality" name="national" (change)="onNationalityChange()" class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+              <label for="nationality" class="block mb-2 text-sm/6 mt-2 font-medium text-gray-900 dark:text-white">NACIONALIDAD</label>
+              <select id="nationality" [(ngModel)]="selectedNationality" name="nationality" (change)="onNationalityChange()" class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                 <option value="">Selecciona una nacionalidad</option>
                 <option *ngFor="let nationality of nationalities" [value]="nationality">{{ nationality }}</option>
               </select>
             </div>
             <div>
-              <label for="contry" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">País de procedencia</label>
+              <label for="contry" class="block mb-2 text-sm/6 mt-2 font-medium text-gray-900 dark:text-white">PAIS DE PROCEDENCIA</label>
               <select id="contry" [(ngModel)]="selectedCountryName" name="contry" (change)="updateSelectedCountry()" class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                 <option value="">Selecciona un país</option>
                 <option *ngFor="let country of countries" [ngValue]="country.name.common">{{ country.name.common }}</option>
               </select>
             </div>
             <div>
-              <label for="direcion" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Dirección de domicilio</label>
-              <input type="text" name="direcion" id="direcion" [(ngModel)]="formulario.direccion" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" required>
+              <label for="domicile_addres" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">DIRECCION DE DOMICILIO</label>
+              <input type="text" name="domicile_addres" id="domicile_addres" [(ngModel)]="formulario.domicile_addres" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" required>
             </div>
             <div>
-              <label for="numero" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Número de teléfono</label>
-              <input type="number" name="numero" id="numero" [(ngModel)]="formulario.telefono" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" placeholder="Ejemplo: 05054687311" required>
+              <label for="additional_address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">DIRECCION ADICIONAL</label>
+              <input type="text" name="additional_address" id="additional_address" [(ngModel)]="formulario.additional_address" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" required>
             </div>
+
+              <button type="button" (click)="retrocederPaso()" class="mt-8 block w-full justify-center rounded-md bg-gray-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600">
+                Regresar
+              </button>
+      
             <button type="submit" class="mt-8 block w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
               Registrarse
             </button>
