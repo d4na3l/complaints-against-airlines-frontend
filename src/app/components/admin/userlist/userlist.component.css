@@ -1,0 +1,23 @@
+.box {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    width: 80%;
+    height: 80%;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+td,
+th {
+    text-align: center;
+    padding: 5px;
+}
+tr {
+    border-bottom: 1px solid rgba(70, 70, 70, 0.705);
+}
+tbody tr:last-child {
+    border: none;
+}
