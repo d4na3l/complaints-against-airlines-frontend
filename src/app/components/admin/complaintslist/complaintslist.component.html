@@ -14,30 +14,34 @@
                 </tr>
             </thead>
             <tbody>
+                @for(complaint of complaintData ; track $index){
                 <tr class="hover:bg-indigo-50">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ complaint.registration_date }}</td>
+                    <td>{{ complaint.complaint_id }}</td>
+                    <td>{{ complaint.ticket.flight_number }}</td>
+                    <td>{{ complaint.ticket.airline.airline_name }}</td>
+                    <td>{{ complaint.complaint_status.status_name }}</td>
+                    <td>{{ complaint.processed_by ?? "Sin asignar" }}</td>
                     <td>
                         <div class="flex flex-row justify-center gap-2">
-                            <button
-                                type="button"
-                                class="rounded-lg bg-blue-500 shadow-md text-white p-1 cursor-pointer hover:bg-blue-700"
+                            <a
+                                [routerLink]="[
+                                    '/employee/complaint',
+                                    complaint.complaint_id,
+                                    'process'
+                                ]"
                             >
-                                Ver
-                            </button>
-                            <button
-                                type="button"
-                                class="rounded-lg bg-indigo-500 shadow-md text-white p-1 cursor-pointer hover:bg-indigo-700"
-                            >
-                                Procesar
-                            </button>
+                                <button
+                                    type="button"
+                                    class="rounded-lg bg-indigo-500 shadow-md text-white p-1 cursor-pointer hover:bg-indigo-700"
+                                >
+                                    Procesar
+                                </button>
+                            </a>
                         </div>
                     </td>
                 </tr>
+                }
             </tbody>
         </table>
     </div>

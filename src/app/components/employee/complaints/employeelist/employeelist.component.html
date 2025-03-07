@@ -13,14 +13,33 @@
                 </tr>
             </thead>
             <tbody>
+                @for(complaint of complaintData; track $index){
                 <tr class="hover:bg-indigo-50">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ complaint.registration_date }}</td>
+                    <td>{{ complaint.complaint_id }}</td>
+                    <td>{{ complaint.ticket.flight_number }}</td>
+                    <td>{{ complaint.ticket.airline.airline_name }}</td>
+                    <td>{{ complaint.complaint_status.status_name }}</td>
+                    <td>
+                        <div class="flex flex-row justify-center gap-2">
+                            <a
+                                [routerLink]="[
+                                    '/employee/complaint',
+                                    complaint.complaint_id,
+                                    'process'
+                                ]"
+                            >
+                                <button
+                                    type="button"
+                                    class="rounded-lg bg-indigo-500 shadow-md text-white p-1 cursor-pointer hover:bg-indigo-700"
+                                >
+                                    Procesar
+                                </button>
+                            </a>
+                        </div>
+                    </td>
                 </tr>
+                }
             </tbody>
         </table>
     </div>

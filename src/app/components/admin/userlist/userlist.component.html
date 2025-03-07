@@ -15,16 +15,18 @@
                 </tr>
             </thead>
             <tbody>
+                @for(user of userData; track $index){
                 <tr class="hover:bg-indigo-50">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ user.nationality_id }}</td>
+                    <td>{{ user.document }}</td>
+                    <td>{{ user.role_id }}</td>
+                    <td>{{ user.first_name }}</td>
+                    <td>{{ user.last_name }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.phone }}</td>
+                    <td>{{ user.domicile_address }}</td>
                 </tr>
+                }
             </tbody>
         </table>
     </div>
