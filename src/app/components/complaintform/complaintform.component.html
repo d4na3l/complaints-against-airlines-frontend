@@ -32,7 +32,7 @@
                     class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500"
                     formControlName="flight_type_id"
                 >
-                    <option value="">
+                    <option value="0">
                         Seleccione la clasificación del vuelo.
                     </option>
                     <option [ngValue]="1">Vuelo que vuela</option>
@@ -44,7 +44,7 @@
                     class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500"
                     formControlName="airline_id"
                 >
-                    <option value="">Seleccione la Aerolínea.</option>
+                    <option value="0">Seleccione la Aerolínea.</option>
                     <option [ngValue]="1">Aerolínea de aviones</option>
                 </select>
                 <label for="airport">Aeropuerto del suceso.</label>
@@ -53,7 +53,7 @@
                     class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500"
                     formControlName="incident_airport_id"
                 >
-                    <option value="">
+                    <option value="0">
                         Seleccione el aeropuerto del suceso.
                     </option>
                     <option [ngValue]="1">
@@ -84,7 +84,9 @@
                     class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500"
                     formControlName="origin_airport_id"
                 >
-                    <option value="">Seleccione el aeropueto de origen.</option>
+                    <option value="0">
+                        Seleccione el aeropueto de origen.
+                    </option>
                     <option [ngValue]="1">Aeropuerto que tmb existe x2.</option>
                 </select>
                 <label for="destination">Aeropuerto de destino.</label>
@@ -94,7 +96,7 @@
                     class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500"
                     formControlName="destination_airport_id"
                 >
-                    <option value="">
+                    <option value="0">
                         Seleccione el aeropuerto de destino.
                     </option>
                     <option [ngValue]="1">Aeropuerto que tmb existe x3.</option>
@@ -110,7 +112,7 @@
                     class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500"
                     formControlName="motive_id"
                 >
-                    <option value="">
+                    <option value="0">
                         Seleccione el motivo de su denuncia
                     </option>
                     <option [ngValue]="1">Motivo totalmente valido</option>
