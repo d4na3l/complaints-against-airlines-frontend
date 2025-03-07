@@ -67,9 +67,9 @@
               <label for="document_type_id" class="block mb-2 text-sm/6 mt-2 font-medium text-gray-900 dark:text-white">DOCUMENTO DE IDENTIDAD</label>
               <div class="flex items-center space-x-2">
                 <select id="document_type_id" name="document_type_id" [(ngModel)]="formulario.document_type_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                  <option value="CIV">CIV</option>
-                  <option value="CIE">CIE</option>
-                  <option value="PAS">PAS</option>
+                  <option value="CIV" id="1">CIV</option>
+                  <option value="CIE" id="2">CIE</option>
+                  <option value="PAS" id="3">PAS</option>
                 </select>
                 <input type="text" name="document" [(ngModel)]="formulario.document" class="flex-grow bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Cedula de identidad" required>
               </div>
