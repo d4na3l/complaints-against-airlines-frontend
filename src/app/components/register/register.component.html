@@ -1,1 +1,126 @@
-<p>register works!</p>
+<section class="bg-white dark:bg-gray-900 " >
+  <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+    <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+      <div class="p-6 space-y-4 md:space-y-6 sm:p-8"> 
+        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+          Registrarse
+        </h1>
+        <form class="space-y-4 md:space-y-6" (ngSubmit)="onSubmit()">
+          <div *ngIf="pasoActual === 1">
+            <div>
+              <label for="first_name" class="block mb-2 text-sm/6  font-medium text-gray-900 dark:text-white">NOMBRE</label>
+              <input type="text" name="first_name" id="first_name" [(ngModel)]="formulario.first_name" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" required>
+            </div>
+            <div *ngIf="erroresPaso1.includes('El nombre es obligatorio.')" class="text-red-500 text-sm">El nombre es obligatorio.</div> <div>
+              <label for="last_name" class="block mb-2 text-sm/6 mt-2 font-medium text-gray-900 dark:text-white">APELLIDOS</label>
+              <input type="text" name="last_name" id="last_name" [(ngModel)]="formulario.last_name" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" required>
+            </div>
+            <div *ngIf="erroresPaso1.includes('El apellido es obligatorio.')" class="text-red-500 text-sm">El apellido es obligatorio.</div> <div>
+              <label for="local_phone" class="block mb-2 text-sm/6 mt-2 font-medium text-gray-900 dark:text-white">TELEFONO LOCAL (1)</label>
+              <input type="number" name="local_phone" id="local_phone" [(ngModel)]="formulario.local_phone" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" placeholder="Ejemplo: 05054687311" required>
+            </div>
+            <div *ngIf="erroresPaso1.includes('El teléfono local es obligatorio.')" class="text-red-500 text-sm">El teléfono local es obligatorio.</div> <div>
+              <label for="phone" class="block mb-2 text-sm/6 mt-2 font-medium text-gray-900 dark:text-white">NUMERO DE TELEFONO </label>
+              <input type="number" name="phone" id="phone" [(ngModel)]="formulario.phone" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" placeholder="Ejemplo: 05054687311" required>
+            </div>
+            <div *ngIf="erroresPaso1.includes('El número de teléfono es obligatorio.')" class="text-red-500 text-sm">El número de teléfono es obligatorio.</div> <div>
+              <label for="email" class="block mb-2 text-sm/6 mt-2 font-medium text-gray-900 dark:text-white">CORREO ELETRONICO</label>
+              <input type="email" name="email" id="email" [(ngModel)]="formulario.email" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" placeholder="ejemplo@gmail.com" required>
+            </div>
+            <div *ngIf="erroresPaso1.includes('El correo electrónico es obligatorio.') || erroresPaso1.includes('El correo electrónico no tiene un formato válido.')" class="text-red-500 text-sm" >
+              <div *ngIf="erroresPaso1.includes('El correo electrónico es obligatorio.')">El correo electrónico es obligatorio.</div>
+              <div *ngIf="erroresPaso1.includes('El correo electrónico no tiene un formato válido.')">Correo electrónico no válido.</div>
+            </div>
+
+            <div>
+              <label for="password" class="block mb-2 text-sm/6 mt-2 font-medium text-gray-900 dark:text-white">CONTRASEÑA</label>
+              <input type="password" name="password" id="password" [(ngModel)]="formulario.password" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" placeholder="Mínimo seis (6) caracteres" required>
+            </div>
+            <div *ngIf="erroresPaso1.includes('La contraseña es obligatoria.') || erroresPaso1.includes('La contraseña debe tener al menos 6 caracteres.')" class="text-red-500 text-sm">
+              <div *ngIf="erroresPaso1.includes('La contraseña es obligatoria.')">La contraseña es obligatoria.</div>
+              <div *ngIf="erroresPaso1.includes('La contraseña debe tener al menos 6 caracteres.')">La contraseña debe tener al menos 6 caracteres.</div>
+            </div>
+
+            <div>
+              <label for="confirm-password" class="block mb-2 text-sm/6 mt-2 font-medium text-gray-900 dark:text-white">CONFIRMA LA CONTRASEÑA</label>
+              <input type="password" name="confirm-password" id="confirm-password" [(ngModel)]="formulario.confirmPassword" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" placeholder="Repetir los seis (6) caracteres" required>
+            </div>
+            <div *ngIf="erroresPaso1.includes('Las contraseñas no coinciden.')" class="text-red-500 text-sm">Las contraseñas no coinciden.</div> <button type="button" (click)="siguientePaso()" class="mt-8 block w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+              Siguiente
+            </button>
+          </div>
+
+          <div *ngIf="pasoActual === 2">
+            <div>
+              <label for="birthdate" class="block mb-2 text-sm/6 mt-2 font-medium text-gray-900 dark:text-white">FECHA DE NACIMIENTO</label>
+              <input type="date" name="birthdate" id="birthdate" [(ngModel)]="formulario.birthdate" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" required>
+            </div>
+            <div *ngIf="erroresPaso2.includes('La fecha de nacimiento es obligatoria.')" class="text-red-500 text-sm">La fecha de nacimiento es obligatoria.</div>
+
+            <div>
+              <label for="profession" class="block mb-2 text-sm/6 mt-2 font-medium text-gray-900 dark:text-white">PROFECCION U OFICIO</label>
+              <input type="text" name="profession" id="profession" [(ngModel)]="formulario.profession" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" required>
+            </div>
+            <div *ngIf="erroresPaso2.includes('La profesión u oficio es obligatoria.')" class="text-red-500 text-sm">La profesión u oficio es obligatoria.</div>
+
+            <div class="flex flex-col">
+              <label for="document_type_id" class="block mb-2 text-sm/6 mt-2 font-medium text-gray-900 dark:text-white">DOCUMENTO DE IDENTIDAD</label>
+              <div class="flex items-center space-x-2">
+                <select id="document_type_id" name="document_type_id" [(ngModel)]="formulario.document_type_id" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                  <option *ngFor="let docType of documentTypes" [value]="docType.document_type_id">{{ docType.keyword }}</option>  
+                </select>
+
+                <input type="text" name="document" id="document" [(ngModel)]="formulario.document" class="flex-grow bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Número de documento" required>              </div>
+            </div>
+              
+            <div *ngIf="erroresPaso2.includes('El tipo de documento de identidad es obligatorio.') || erroresPaso2.includes('El número de documento de identidad es obligatorio.')" class="text-red-500 text-sm">
+              <div *ngIf="erroresPaso2.includes('El tipo de documento de identidad es obligatorio.')">El tipo de documento de identidad es obligatorio.</div>
+              <div *ngIf="erroresPaso2.includes('El número de documento de identidad es obligatorio.')">El número de documento de identidad es obligatorio.</div>
+            </div>
+
+            <div>
+              <label for="nationality" class="block mb-2 text-sm/6 mt-2 font-medium text-gray-900 dark:text-white">NACIONALIDAD</label>
+              <select id="nationality" [(ngModel)]="selectedNationality" name="nationality"  class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                <option value="">Selecciona una nacionalidad</option>
+                <option *ngFor="let nationality of nationalities" [value]="nationality.value">{{ nationality.label }}</option>
+              </select>
+              <div *ngIf="erroresPaso2.includes('La nacionalidad es obligatoria.')" class="text-red-500 text-sm">La nacionalidad es obligatoria.</div>
+            </div>
+            
+            <div>
+              <label for="country" class="block mb-2 text-sm/6 mt-2 font-medium text-gray-900 dark:text-white">PAIS DE PROCEDENCIA</label>
+              <select id="country" [(ngModel)]="selectedCountryName" name="country" (change)="updateSelectedCountry()" class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                <option value="">Selecciona un país</option>
+                <option *ngFor="let country of countries" [ngValue]="country.country_name">{{ country.country_name }}</option>
+              </select>
+              <div *ngIf="erroresPaso2.includes('El país de procedencia es obligatorio.')" class="text-red-500 text-sm">El país de procedencia es obligatorio.</div>
+            </div>
+
+            <div *ngIf="erroresPaso2.includes('El país de procedencia es obligatorio.')" class="text-red-500 text-sm">El país de procedencia es obligatorio.</div>
+
+            <div>
+              <label for="domicile_addres" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">DIRECCION DE DOMICILIO</label>
+              <input type="text" name="domicile_addres" id="domicile_addres" [(ngModel)]="formulario.domicile_addres" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" placeholder="Edo. parroquia, direccion" required>
+            </div>
+            <div *ngIf="erroresPaso2.includes('La dirección de domicilio es obligatoria.')" class="text-red-500 text-sm">La dirección de domicilio es obligatoria.</div>
+
+
+            <div>
+              <label for="additional_address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">DIRECCION ADICIONAL (Opcional)</label>
+              <input type="text" name="additional_address" id="additional_address" [(ngModel)]="formulario.additional_address" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" placeholder="obligatorio para extranjeros" >
+            </div>
+            <button type="button" (click)="retrocederPaso()" class="mt-8 block w-full justify-center rounded-md bg-gray-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-gray-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600">
+                Regresar
+              </button>
+
+            <button type="submit" class="mt-8 block w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+              Registrarse
+            </button>
+          </div>
+         
+           <div *ngIf="errorServicioPaises" class="text-red-500 mt-4">{{ errorServicioPaises }}</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

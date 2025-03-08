@@ -1,0 +1,25 @@
+.box {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    width: 80%;
+    height: 80%;
+    border-radius: 10px;
+}
+
+.form {
+    width: 60%;
+    height: 80%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+form textarea,
+input,
+select {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+fieldset legend {
+    padding: 10px 15px;
+}
