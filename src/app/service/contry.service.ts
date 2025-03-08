@@ -6,12 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CountryService {
-  private apiUrl = 'https://restcountries.com/v3.1';
+  private apiUrl = 'http://localhost:8000/api/v1/reference-data/countries';
 
   constructor(private http: HttpClient) { }
 
   getAllCountries(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/all`);
+    return this.http.get<any[]>(`${this.apiUrl}`);
   }
 
   getCountryByName(name: string): Observable<any[]> {

@@ -66,14 +66,13 @@
             <div class="flex flex-col">
               <label for="document_type_id" class="block mb-2 text-sm/6 mt-2 font-medium text-gray-900 dark:text-white">DOCUMENTO DE IDENTIDAD</label>
               <div class="flex items-center space-x-2">
-                <select id="document_type_id" name="document_type_id" [(ngModel)]="formulario.document_type_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                  <option value="CIV" id="1">CIV</option>
-                  <option value="CIE" id="2">CIE</option>
-                  <option value="PAS" id="3">PAS</option>
+                <select id="document_type_id" name="document_type_id" [(ngModel)]="formulario.document_type_id" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                  <option *ngFor="let docType of documentTypes" [value]="docType.document_type_id">{{ docType.keyword }}</option>  
                 </select>
-                <input type="text" name="document" [(ngModel)]="formulario.document" class="flex-grow bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Cedula de identidad" required>
-              </div>
+
+                <input type="text" name="document" id="document" [(ngModel)]="formulario.document" class="flex-grow bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Número de documento" required>              </div>
             </div>
+              
             <div *ngIf="erroresPaso2.includes('El tipo de documento de identidad es obligatorio.') || erroresPaso2.includes('El número de documento de identidad es obligatorio.')" class="text-red-500 text-sm">
               <div *ngIf="erroresPaso2.includes('El tipo de documento de identidad es obligatorio.')">El tipo de documento de identidad es obligatorio.</div>
               <div *ngIf="erroresPaso2.includes('El número de documento de identidad es obligatorio.')">El número de documento de identidad es obligatorio.</div>
@@ -81,20 +80,22 @@
 
             <div>
               <label for="nationality" class="block mb-2 text-sm/6 mt-2 font-medium text-gray-900 dark:text-white">NACIONALIDAD</label>
-              <select id="nationality" [(ngModel)]="selectedNationality" name="nationality" (change)="onNationalityChange()" class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+              <select id="nationality" [(ngModel)]="selectedNationality" name="nationality"  class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                 <option value="">Selecciona una nacionalidad</option>
-                <option *ngFor="let nationality of nationalities" [value]="nationality">{{ nationality }}</option>
+                <option *ngFor="let nationality of nationalities" [value]="nationality.value">{{ nationality.label }}</option>
               </select>
+              <div *ngIf="erroresPaso2.includes('La nacionalidad es obligatoria.')" class="text-red-500 text-sm">La nacionalidad es obligatoria.</div>
             </div>
-            <div *ngIf="erroresPaso2.includes('La nacionalidad es obligatoria.')" class="text-red-500 text-sm">La nacionalidad es obligatoria.</div>
-
+            
             <div>
               <label for="country" class="block mb-2 text-sm/6 mt-2 font-medium text-gray-900 dark:text-white">PAIS DE PROCEDENCIA</label>
               <select id="country" [(ngModel)]="selectedCountryName" name="country" (change)="updateSelectedCountry()" class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                 <option value="">Selecciona un país</option>
-                <option *ngFor="let country of countries" [ngValue]="country.name.common">{{ country.name.common }}</option>
+                <option *ngFor="let country of countries" [ngValue]="country.country_name">{{ country.country_name }}</option>
               </select>
+              <div *ngIf="erroresPaso2.includes('El país de procedencia es obligatorio.')" class="text-red-500 text-sm">El país de procedencia es obligatorio.</div>
             </div>
+
             <div *ngIf="erroresPaso2.includes('El país de procedencia es obligatorio.')" class="text-red-500 text-sm">El país de procedencia es obligatorio.</div>
 
             <div>
@@ -116,7 +117,8 @@
               Registrarse
             </button>
           </div>
-          <div *ngIf="errorServicioPaises" class="text-red-500 mt-4">{{ errorServicioPaises }}</div>
+         
+           <div *ngIf="errorServicioPaises" class="text-red-500 mt-4">{{ errorServicioPaises }}</div>
         </form>
       </div>
     </div>
