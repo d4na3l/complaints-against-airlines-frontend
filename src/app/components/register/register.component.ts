@@ -188,7 +188,9 @@ export class RegisterComponent implements OnInit {
         ...this.formulario,
         nationality: this.selectedNationality,
         country: this.selectedCountryName,
-        password_confirmation: this.formulario.confirmPassword
+        password_confirmation: this.formulario.confirmPassword,
+        nationality_id: this.selectedNationality,
+        country_origin_id: this.selectedCountry?.country_id 
       };
 
       this.http.post<any>('http://localhost:8000/api/v1/auth/register', registroData)
@@ -200,14 +202,14 @@ export class RegisterComponent implements OnInit {
             this.pasoActual = 1;
             this.selectedNationality = '';
             this.selectedCountryName = '';
-            this.router.navigate(['/login']);
+            this.router.navigate(['']);
           },
-          error: (error: any) => { // ✅ Tipo 'any' para error
+          error: (error: any) => {
             console.error('Error en el registro:', error);
             console.log('Error response:', error);
 
             if (error.error && error.error.errors) {
-              const validationErrors = error.error.errors as BackendValidationErrors; // ✅ Casteo con interfaz
+              const validationErrors = error.error.errors as BackendValidationErrors;
               const errorValues = Object.values(validationErrors);
               if (Array.isArray(errorValues)) {
                 this.erroresPaso2 = errorValues.flatMap(errorArray =>
