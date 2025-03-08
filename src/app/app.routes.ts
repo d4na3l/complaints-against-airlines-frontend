@@ -7,6 +7,7 @@ import { ComplaintslistComponent } from './components/admin/complaintslist/compl
 import { FormularioComponent } from './pages/user/complaints/formulario/formulario.component';
 import { TabladusuarioComponent } from './pages/user/complaints/tabladusuario/tabladusuario.component';
 import { EmpleadoformularioComponent } from './pages/employee/complaints/empleadoformulario/empleadoformulario.component';
+import { ListaDenunciasComponent } from './pages/admin/complaints/lista-denuncias/lista-denuncias.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -14,14 +15,14 @@ export const routes: Routes = [
     { path: 'admin/list', component: ListaComponent } /*Lista de empleados*/,
     {
         path: 'admin/complaintlist',
-        component: ComplaintslistComponent,
+        component: ListaDenunciasComponent,
     } /*Lista de denuncias Administrador*/,
     {
         path: 'employee/list',
         component: ListafuncionarioComponent,
     } /*Lista de denuncias Funcionario*/,
     {
-        path: 'employee/complaint/id/process',
+        path: 'employee/complaint/:id/process',
         component: EmpleadoformularioComponent,
     },
     {
